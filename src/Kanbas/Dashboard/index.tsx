@@ -7,7 +7,7 @@ export default function Dashboard() {
           
         {/*Course 1 */}
           <div className="wd-dashboard-course">
-            <img src="public/images/htmlCss.jpg" width={200} alt="HTML/CSS course" />
+            <img src="public/images/htmlcss.jpg" width={200} alt="HTML/CSS course" />
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/1234/Home">
