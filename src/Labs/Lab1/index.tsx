@@ -70,6 +70,102 @@ Your favorite books (in no particular order)
 
 </div>
 
+<div id="wd-tables">
+        <h4>Table Tag</h4>
+        <table border={1} width="100%">
+          <thead>
+            <tr>
+              <th>Quiz</th>
+              <th>Topic</th>
+              <th>Date</th>
+              <th>Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Q1</td>
+              <td>HTML</td>
+              <td>2/3/21</td>
+              <td>85</td>
+            </tr>
+            <tr>
+              <td>Q2</td>
+              <td>CSS</td>
+              <td>2/10/21</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>Q3</td>
+              <td>JavaScript</td>
+              <td>2/17/21</td>
+              <td>95</td>
+            </tr>
+            <tr>
+              <td>Q4</td>
+              <td>React</td>
+              <td>2/24/21</td>
+              <td>91</td>
+            </tr>
+            <tr>
+              <td>Q5</td>
+              <td>Redux</td>
+              <td>3/1/21</td>
+              <td>92</td>
+            </tr>
+            <tr>
+              <td>Q6</td>
+              <td>Node</td>
+              <td>3/7/21</td>
+              <td>96</td>
+            </tr>
+            <tr>
+              <td>Q7</td>
+              <td>MongoDB</td>
+              <td>3/14/21</td>
+              <td>99</td>
+            </tr>
+            <tr>
+              <td>Q8</td>
+              <td>Mongoose</td>
+              <td>3/21/21</td>
+              <td>94</td>
+            </tr>
+            <tr>
+              <td>Q9</td>
+              <td>API</td>
+              <td>3/28/21</td>
+              <td>89</td>
+            </tr>
+            <tr>
+              <td>Q10</td>
+              <td>AI</td>
+              <td>4/1/21</td>
+              <td>93</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colSpan={3}>Average</td>
+              <td>92.4</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+<div id="wd-images">
+  <h4>Image tag</h4>
+  Loading an image from the internet:
+  <br />
+  <img id="wd-starship"
+    width="400px"
+   src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg"
+  />
+  <br />
+  Loading a local image:
+  <br />
+  <img id="wd-teslabot" src="images/teslabot.jpg" height="200px" />
+</div>
+
 </div>
 
     );
