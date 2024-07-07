@@ -95,16 +95,18 @@ export default function AssignmentEditor() {
 
 
 
-            <label htmlFor="wd-available-from">Available from</label><br/>
-            <input type="date" id="wd-available-from" value="2024-05-06"/>
-        
+            <label htmlFor="wd-available-from">Available from</label>
             <label htmlFor="wd-available-until">Until</label><br/>
+            <input type="date" id="wd-available-from" value="2024-05-06"/>
             <input type="date" id="wd-available-until" value="2024-05-20"/>
             </td>
           </tr>
         </table>
+        <hr />
+        <div style={{textAlign: "right", marginTop: "20px"}} id="wd-assignment-editor-footer">
         <button id="wd-cancel" onClick={() => alert("Cancelled")} type="button">Cancel</button>
         <button id="wd-save" onClick={() => alert("Saved")} type="button">Save</button>
+        </div>
       </div>
 
   );}
