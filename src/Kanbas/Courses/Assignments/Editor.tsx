@@ -59,10 +59,7 @@ export default function AssignmentEditor() {
             <option selected value="Online">Online</option>
             <option value="Offline">Offline</option>
             </select>
-            </td>
-         </tr>
-         <tr>
-            <td>
+            
             <label>Online Entry Options</label><br/>
                 <input type="checkbox" name="wd-text-entry" id="wd-text-entry"/>
                 <label htmlFor="wd-text-entry">Text Entry</label><br/>
@@ -81,8 +78,35 @@ export default function AssignmentEditor() {
             </td>
           </tr>
 
+          <tr>
+            <td align="right" valign="top">
+              <label>Assign</label>
+            </td>
+
+            <td>
+            <label htmlFor="wd-assign-to">Assign to</label>
+            <select id="wd-name">
+            <option selected value="Everyone">Everyone</option>
+            <option value="Manasa">Manasa</option>
+            </select>
+            
+            <label htmlFor="wd-due-date"> Due </label><br/>
+            <input type="date" id="wd-due-date" value="2024-05-13"/><br/>
+
+
+
+            <label htmlFor="wd-available-from">Available from</label>
+            <input type="date" id="wd-available-from" value="2024-05-06"/>
+        
+            <label htmlFor="wd-available-until">Until</label>
+            <input type="date" id="wd-available-until" value="2024-05-20"/>
+            </td>
+          </tr>
         </table>
+        <button id="wd-cancel" onClick={() => alert("Cancelled")} type="button">Cancel</button>
+        <button id="wd-save" onClick={() => alert("Saved")} type="button">Save</button>
       </div>
+
   );}
   
   
