@@ -7,7 +7,7 @@ export default function Dashboard() {
           
         {/*Course 1 */}
           <div className="wd-dashboard-course">
-            <img src="public/images/htmlcss.jpg" width={200} alt="HTML/CSS course" />
+            <img src="/images/htmlcss.jpg" width={200} alt="HTML/CSS course" />
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/1234/Home">
@@ -21,7 +21,7 @@ export default function Dashboard() {
           </div>
 
         {/*Course 2 */}
-          <div className="wd-dashboard-course"> <img src="public/images/bootstrap.jpg" width={200} alt="Bootstrap course"/>
+          <div className="wd-dashboard-course"> <img src="/images/bootstrap.jpg" width={200} alt="Bootstrap course"/>
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/1235/Home">
