@@ -57,10 +57,11 @@ export default function AssignmentEditor() {
             <td>
             <select id="wd-submission-type">
             <option selected value="Online">Online</option>
-            <option value="In Class">In Class</option>
+            <option value="Offline">Offline</option>
             </select>
             </td>
-    
+         </tr>
+         <tr>
             <td>
             <label>Online Entry Options</label><br/>
                 <input type="checkbox" name="wd-text-entry" id="wd-text-entry"/>
@@ -73,10 +74,10 @@ export default function AssignmentEditor() {
                 <label htmlFor="wd-media-recordings">Media Recordings</label><br/>
 
                 <input type="checkbox" name="wd-student-annotation" id="wd-student-annotation"/>
-                <label htmlFor="wd-student-annotation">Student Annotation</label>
+                <label htmlFor="wd-student-annotation">Student Annotation</label><br/>
 
                 <input type="checkbox" name="wd-file-upload" id="wd-file-upload"/>
-                <label htmlFor="wd-file-upload">File Uploads</label>
+                <label htmlFor="wd-file-upload">File Uploads</label><br/>
             </td>
           </tr>
 
