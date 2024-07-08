@@ -13,10 +13,6 @@ export default function Modules() {
             </select>
       <button id="wd-add-module">+ Module</button>
 
-
-      <button id="wd-add-assignment">+ Assignment</button>
-      <input id="wd-search-assignment" placeholder="Search for Assignments" />
-
       <ul id="wd-modules">
         <li className="wd-module">
           <div className="wd-title">Week 1</div>
