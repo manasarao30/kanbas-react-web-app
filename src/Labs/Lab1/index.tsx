@@ -313,8 +313,7 @@ export default function Lab1() {
       <a id="wd-lipsum" href="https://www.lipsum.com">
         {" "}
         click here
-      </a>
-      to get dummy text
+      </a>{" "}to get dummy text
       <br />
       Please{" "}
       <a
@@ -323,8 +322,7 @@ export default function Lab1() {
       >
         {" "}
         click here
-      </a>
-      to access my Kanbas GitHub Repo
+      </a>{" "}to access my Kanbas GitHub Repo
       <br />
     </div>
   );
