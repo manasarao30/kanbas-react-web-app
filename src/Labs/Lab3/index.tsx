@@ -4,6 +4,6 @@ export default function Lab3() {
         <h2>Lab 3</h2>
       </div>
     );
-  }
+}
   
   

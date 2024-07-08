@@ -4,7 +4,7 @@ export default function AssignmentEditor() {
         <label htmlFor="wd-name">Assignment Name</label> <br />
         <input id="wd-name" value="A1 - ENV + HTML" /><br /><br />
         <label htmlFor="wd-description">Description</label><br />
-        <textarea id="wd-description" rows={10} cols={50}>
+        <textarea id="wd-description" rows={8} cols={50}>
         The assignment is available online. Submit a link to the landing page of your Web application running on Netlify. The landing page should include the following: Your full name and section
         Links to each of the lab assignments
         Link to the Kanbas application
@@ -81,11 +81,8 @@ export default function AssignmentEditor() {
               <label>Assign</label>
             </td>
             <td>
-              <label htmlFor="wd-assign-to">Assign to</label><br />
-              <select id="wd-assign-to">
-                <option selected value="Everyone">Everyone</option>
-                <option value="Manasa">Manasa</option>
-              </select><br />
+             <label htmlFor="wd-assign-to">Assign to</label><br />
+              <input type="text" id="wd-assign-to" value="Everyone"/><br />
               
               <label htmlFor="wd-due-date"> Due </label><br />
               <input type="date" id="wd-due-date" value="2024-05-13" /><br />
