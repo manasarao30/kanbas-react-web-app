@@ -41,6 +41,11 @@ export default function KanbasNavigation() {
           Labs
         </a>
       </li>
+      <li>
+        <a id="wd-landing-page-link" href="#/Labs">
+          Labs
+        </a>
+      </li>
     </ul>
   );
 }
