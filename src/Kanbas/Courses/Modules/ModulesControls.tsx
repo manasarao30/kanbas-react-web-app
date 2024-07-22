@@ -1,7 +1,8 @@
 import { FaPlus } from "react-icons/fa6";
 import GreenCheckmark from "./GreenCheckmark";
-import 'bootstrap/dist/css/bootstrap.min.css'; 
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { MdDoNotDisturbAlt } from "react-icons/md";
 export default function ModulesControls() {
   return (
     <div id="wd-modules-controls" className="text-nowrap">
@@ -53,7 +54,7 @@ export default function ModulesControls() {
               className="dropdown-item"
               href="#"
             >
-              <GreenCheckmark />
+              <MdDoNotDisturbAlt className="me-1 fs-5" />
               Unpublish all modules and items
             </a>
           </li>
@@ -64,7 +65,7 @@ export default function ModulesControls() {
               className="dropdown-item"
               href="#"
             >
-              <GreenCheckmark />
+              <MdDoNotDisturbAlt className="me-1 fs-5" />
               Unpublish modules only
             </a>
           </li>

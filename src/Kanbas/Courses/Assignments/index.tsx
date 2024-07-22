@@ -1,13 +1,20 @@
 import React from "react";
-import ModuleControlButtons from "./ModuleControlButtons";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { BsGripVertical } from "react-icons/bs";
 import { IoNewspaperSharp } from "react-icons/io5";
 import { FaPlus } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
+import * as db from "../../Database";
 import LessonControlButtons from "./LessonControlButtons";
 import AssignmentHeader from "./AssignmentHeader";
 
 export default function Assignments() {
+  const { cid } = useParams();
+  const assignments = db.assignments.filter(
+    (assignment) => assignment.course === cid
+  );
+
   return (
     <div id="wd-assignments" className="container mt-4">
       <div className="d-flex justify-content-between mb-3">
@@ -52,60 +59,29 @@ export default function Assignments() {
           </div>
 
           <ul id="wd-assignment-list" className="list-group rounded-0">
-            <li className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex align-items-start justify-content-between">
-              <div className="d-flex align-items-center">
-                <BsGripVertical className="me-2 fs-3" />
-                <IoNewspaperSharp className="me-2 fs-4" />
-                <div>
-                  <a
-                    className="wd-assignment-link d-block"
-                    href="#/Kanbas/Courses/1234/Assignments/123"
-                  >
-                    A1 
-                  </a>
-                  <span style={{ color: "red" }}>Multiple Modules</span> |{" "}
-                  <b>Not available until</b> May 6 at 12:00 am | <b>Due</b> May
-                  13 at 11:59pm | 100 pts
+            {assignments.map((assignment) => (
+              <li
+                key={assignment._id}
+                className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex align-items-start justify-content-between"
+              >
+                <div className="d-flex align-items-center">
+                  <BsGripVertical className="me-2 fs-3" />
+                  <IoNewspaperSharp className="me-2 fs-4" />
+                  <div>
+                    <Link
+                      className="wd-assignment-link d-block"
+                      to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}
+                    >
+                      {assignment.title}
+                    </Link>
+                    <span style={{ color: "red" }}>Multiple Modules</span> |{" "}
+                    <b>Not available until</b> {assignment.availableUntil} |{" "}
+                    <b>Due</b> {assignment.dueDate} | {assignment.points} pts
+                  </div>
                 </div>
-              </div>
-              <LessonControlButtons />
-            </li>
-            <li className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex align-items-start justify-content-between">
-              <div className="d-flex align-items-center">
-                <BsGripVertical className="me-2 fs-3" />
-                <IoNewspaperSharp className="me-2 fs-4" />
-                <div>
-                  <a
-                    className="wd-assignment-link d-block"
-                    href="#/Kanbas/Courses/1234/Assignments/123"
-                  >
-                    A2 
-                  </a>
-                  <span style={{ color: "red" }}>Multiple Modules</span> |{" "}
-                  <b>Not available until</b> May 13 at 12:00 am | <b>Due</b> May
-                  20 at 11:59pm | 100 pts
-                </div>
-              </div>
-              <LessonControlButtons />
-            </li>
-            <li className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex align-items-start justify-content-between">
-              <div className="d-flex align-items-center">
-                <BsGripVertical className="me-2 fs-3" />
-                <IoNewspaperSharp className="me-2 fs-4" />
-                <div>
-                  <a
-                    className="wd-assignment-link d-block"
-                    href="#/Kanbas/Courses/1234/Assignments/123"
-                  >
-                    A3 
-                  </a>
-                  <span style={{ color: "red" }}>Multiple Modules</span> |{" "}
-                  <b>Not available until</b> May 20 at 12:00 am | <b>Due</b> May
-                  27 at 11:59pm | 100 pts
-                </div>
-              </div>
-              <LessonControlButtons />
-            </li>
+                <LessonControlButtons />
+              </li>
+            ))}
           </ul>
         </li>
       </ul>

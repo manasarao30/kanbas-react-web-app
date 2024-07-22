@@ -7,8 +7,9 @@ import { RiBarChart2Fill } from "react-icons/ri";
 import { TfiAnnouncement } from "react-icons/tfi";
 import { IoIosNotifications } from "react-icons/io";
 
-
-{/* Find more icons */}
+{
+  /* Find more icons */
+}
 export default function CourseStatus() {
   return (
     <div id="wd-course-status" style={{ width: "300px" }}>
@@ -38,7 +39,7 @@ export default function CourseStatus() {
         Import from Commons
       </button>
 
-<button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
+      <button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
         <AiFillHome className="me-2 fs-5" />
         Choose Home Page
       </button>
@@ -64,5 +65,5 @@ export default function CourseStatus() {
       </button>
       {/* Complete the rest of the buttons */}
     </div>
-);}
-
+  );
+}
