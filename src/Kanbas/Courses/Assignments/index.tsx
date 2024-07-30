@@ -1,19 +1,32 @@
 import React from "react";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store";
+import { deleteAssignment } from "./reducer";
 import { BsGripVertical } from "react-icons/bs";
 import { IoNewspaperSharp } from "react-icons/io5";
 import { FaPlus } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
-import * as db from "../../Database";
 import LessonControlButtons from "./LessonControlButtons";
 import AssignmentHeader from "./AssignmentHeader";
+import ModuleControlButtons from "./ModuleControlButtons";
 
 export default function Assignments() {
   const { cid } = useParams();
-  const assignments = db.assignments.filter(
-    (assignment) => assignment.course === cid
+  const navigate = useNavigate();
+  const assignments = useSelector((state: RootState) =>
+    state.assignmentsReducer.assignments.filter(
+      (assignment) => assignment.course === cid
+    )
   );
+  const dispatch = useDispatch();
+
+  const handleDelete = (id: string) => {
+    if (window.confirm("Are you sure you want to delete this assignment?")) {
+      dispatch(deleteAssignment(id));
+    }
+  };
 
   return (
     <div id="wd-assignments" className="container mt-4">
@@ -30,11 +43,10 @@ export default function Assignments() {
           />
         </div>
         <div>
-          <button className="btn btn-light me-2" id="wd-add-assignment-group">
-            <FaPlus className="me-2" />
-            Group
-          </button>
-          <button className="btn btn-danger" id="wd-add-assignment">
+          <button
+            className="btn btn-danger"
+            onClick={() => navigate(`/Kanbas/Courses/${cid}/Assignments/new`)}
+          >
             <FaPlus className="me-2" />
             Assignment
           </button>
@@ -79,7 +91,10 @@ export default function Assignments() {
                     <b>Due</b> {assignment.dueDate} | {assignment.points} pts
                   </div>
                 </div>
-                <LessonControlButtons />
+                <ModuleControlButtons
+                  assignmentId={assignment._id}
+                  deleteAssignment={handleDelete}
+                />
               </li>
             ))}
           </ul>
