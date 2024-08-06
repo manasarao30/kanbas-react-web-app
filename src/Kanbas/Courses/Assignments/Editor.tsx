@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addAssignment, updateAssignment } from "./reducer";
+import { addAssignment, updateAssignment, setAssignments } from "./reducer";
+import * as client from "./client";
 import { RootState } from "../../store";
 
 export default function AssignmentEditor() {
@@ -12,15 +13,17 @@ export default function AssignmentEditor() {
   const assignments = useSelector(
     (state: RootState) => state.assignmentsReducer.assignments
   );
-  const foundAssignment = assignments.find((a) => a._id === id);
+  const foundAssignment = assignments.find((a: any) => a._id === id);
 
   const [assignment, setAssignment] = useState({
+    _id: "",
     title: "",
     description: "",
     points: 0,
     dueDate: "",
     availableFrom: "",
     availableUntil: "",
+    course: cid,
   });
 
   useEffect(() => {
@@ -38,10 +41,12 @@ export default function AssignmentEditor() {
     setAssignment({ ...assignment, [id]: value });
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (id === "new") {
-      dispatch(addAssignment({ ...assignment, course: cid }));
+      const newAssignment = await client.createAssignment(cid as string, assignment);
+      dispatch(addAssignment(newAssignment));
     } else {
+      await client.updateAssignment({ ...assignment, _id: id, course: cid });
       dispatch(updateAssignment({ ...assignment, _id: id, course: cid }));
     }
     navigate(`/Kanbas/Courses/${cid}/Assignments`);

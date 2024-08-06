@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
-import { deleteAssignment } from "./reducer";
+import * as client from "./client";
+import { setAssignments, deleteAssignment } from "./reducer";
 import { BsGripVertical } from "react-icons/bs";
 import { IoNewspaperSharp } from "react-icons/io5";
 import { FaPlus } from "react-icons/fa";
@@ -17,13 +18,23 @@ export default function Assignments() {
   const navigate = useNavigate();
   const assignments = useSelector((state: RootState) =>
     state.assignmentsReducer.assignments.filter(
-      (assignment) => assignment.course === cid
+      (assignment: any) => assignment.course === cid
     )
   );
   const dispatch = useDispatch();
 
-  const handleDelete = (id: string) => {
+  const fetchAssignments = async () => {
+    const assignments = await client.findAssignmentsForCourse(cid as string);
+    dispatch(setAssignments(assignments));
+  };
+
+  useEffect(() => {
+    fetchAssignments();
+  }, [cid]);
+
+  const handleDelete = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this assignment?")) {
+      await client.deleteAssignment(id);
       dispatch(deleteAssignment(id));
     }
   };
@@ -71,7 +82,7 @@ export default function Assignments() {
           </div>
 
           <ul id="wd-assignment-list" className="list-group rounded-0">
-            {assignments.map((assignment) => (
+            {assignments.map((assignment: any) => (
               <li
                 key={assignment._id}
                 className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex align-items-start justify-content-between"
@@ -93,7 +104,7 @@ export default function Assignments() {
                 </div>
                 <ModuleControlButtons
                   assignmentId={assignment._id}
-                  deleteAssignment={handleDelete}
+                  deleteAssignment={() => handleDelete(assignment._id)}
                 />
               </li>
             ))}
