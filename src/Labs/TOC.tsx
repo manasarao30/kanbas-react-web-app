@@ -59,16 +59,17 @@ export default function TOC() {
           Kanbas
         </a>
       </li>
-      <li className="nav-item">
+      <li className="nav-item ">
         <a
-          id="wd-github"
+          id="wd-github" 
           href="https://github.com/manasarao30/kanbas-react-web-app"
           target="_blank"
           className="nav-link"
         >
           My React GitHub
         </a>
-
+      </li>
+      <li className="nav-item ">
         <a
           id="wd-github"
           href="https://github.com/manasarao30/kanbas-node-server-app/tree/main"
@@ -77,7 +78,8 @@ export default function TOC() {
         >
           My Node GitHub
         </a>
-
+      </li>
+      <li className="nav-item ">
         <a
           id="wd-site-link"
           href="https://kanbas-node-server-app-3t66.onrender.com/"
