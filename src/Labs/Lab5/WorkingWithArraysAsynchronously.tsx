@@ -50,6 +50,7 @@ export default function WorkingWithArraysAsynchronously() {
       console.log(error);
       setErrorMessage(error.response.data.message);
     }
+    
   };
 
   useEffect(() => {
