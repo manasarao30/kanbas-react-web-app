@@ -63,12 +63,16 @@ export default function Dashboard({
       >
         {courses.map((course) => (
           <div
-            key={course._id}
+            // key={course._id}
+            key={course.number}
+
             className="wd-dashboard-course col"
             style={{ width: "300px" }}
           >
             <Link
-              to={`/Kanbas/Courses/${course._id}/Home`}
+              // to={`/Kanbas/Courses/${course._id}/Home`}
+              to={`/Kanbas/Courses/${course.number}/Home`}
+
               className="text-decoration-none"
             >
               <div className="card h-100">

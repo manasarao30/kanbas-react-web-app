@@ -17,11 +17,13 @@ import ProtectedRoute from "./ProtectedRoute";
 export default function Kanbas() {
   // const [courses, setCourses] = useState<any[]>(db.courses);
   const [course, setCourse] = useState<any>({
-    _id: "1234",
+    // _id: "1234",
     name: "New Course",
     number: "New Number",
     startDate: "2023-09-10",
     endDate: "2023-12-15",
+    department: "D123",  
+    credits: 4,  
     image: "/images/react.jpg",
     description: "New Description",
   });
