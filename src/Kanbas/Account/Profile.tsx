@@ -7,20 +7,27 @@ export default function Profile() {
     const [profile, setProfile] = useState<any>({});
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const signout = async () => {
+    const fetchProfile = async () => {
+        try {
+          const account = await client.profile();
+          console.log("In fetch profile");
+          console.log(account);
+          setProfile(account);
+    
+        } catch (err: any) {
+          navigate("/Kanbas/Account/Signin");
+        }
+      };
+    
+      const signout = async () => {
         await client.signout();
         dispatch(setCurrentUser(null));
         navigate("/Kanbas/Account/Signin");
-    };
-    const fetchProfile = async () => {
-        try {
-            const account = await client.profile();
-            setProfile(account);
-        } catch (err: any) {
-            navigate("/Kanbas/Account/Signin");
-        }
-    };
-    useEffect(() => { fetchProfile(); }, []);
+      };
+    
+      useEffect(() => {
+        fetchProfile();
+      }, []);
     return (
         <div className="wd-profile-screen container">
             <h1>Profile</h1>
