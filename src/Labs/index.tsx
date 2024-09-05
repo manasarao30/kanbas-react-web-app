@@ -18,6 +18,7 @@ export default function Labs() {
       <h1>Labs</h1>
       <TOC />
       <Routes>
+        {/* Navigate to Lab1 by default */}
         <Route path="/" element={<Navigate to="Lab1" />} />
         <Route path="Lab1" element={<Lab1 />} />
         <Route path="Lab2" element={<Lab2 />} />
